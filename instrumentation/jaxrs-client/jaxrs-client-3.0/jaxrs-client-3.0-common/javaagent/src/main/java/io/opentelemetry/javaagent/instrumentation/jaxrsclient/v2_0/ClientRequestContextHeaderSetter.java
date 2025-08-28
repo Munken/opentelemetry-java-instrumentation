@@ -6,7 +6,7 @@
 package io.opentelemetry.javaagent.instrumentation.jaxrsclient.v2_0;
 
 import io.opentelemetry.context.propagation.TextMapSetter;
-import javax.ws.rs.client.ClientRequestContext;
+import jakarta.ws.rs.client.ClientRequestContext;
 
 enum ClientRequestContextHeaderSetter implements TextMapSetter<ClientRequestContext> {
   INSTANCE;

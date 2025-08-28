@@ -5,8 +5,8 @@
 
 package io.opentelemetry.javaagent.instrumentation.jaxrsclient.v2_0;
 
-import javax.ws.rs.core.Feature;
-import javax.ws.rs.core.FeatureContext;
+import jakarta.ws.rs.core.Feature;
+import jakarta.ws.rs.core.FeatureContext;
 
 public class ClientTracingFeature implements Feature {
 

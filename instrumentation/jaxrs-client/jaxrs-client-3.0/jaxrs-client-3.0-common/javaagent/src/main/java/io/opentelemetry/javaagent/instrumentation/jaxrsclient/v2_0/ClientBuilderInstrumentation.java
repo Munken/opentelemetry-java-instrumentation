@@ -13,7 +13,7 @@ import static net.bytebuddy.matcher.ElementMatchers.returns;
 
 import io.opentelemetry.javaagent.extension.instrumentation.TypeInstrumentation;
 import io.opentelemetry.javaagent.extension.instrumentation.TypeTransformer;
-import javax.ws.rs.client.Client;
+import jakarta.ws.rs.client.Client;
 import net.bytebuddy.asm.Advice;
 import net.bytebuddy.description.type.TypeDescription;
 import net.bytebuddy.implementation.bytecode.assign.Assigner;
@@ -22,18 +22,19 @@ import net.bytebuddy.matcher.ElementMatcher;
 public class ClientBuilderInstrumentation implements TypeInstrumentation {
   @Override
   public ElementMatcher<ClassLoader> classLoaderOptimization() {
-    return hasClassesNamed("javax.ws.rs.client.ClientBuilder");
+    System.out.println("Peter");
+    return hasClassesNamed("jakarta.ws.rs.client.ClientBuilder");
   }
 
   @Override
   public ElementMatcher<TypeDescription> typeMatcher() {
-    return extendsClass(named("javax.ws.rs.client.ClientBuilder"));
+    return extendsClass(named("jakarta.ws.rs.client.ClientBuilder"));
   }
 
   @Override
   public void transform(TypeTransformer transformer) {
     transformer.applyAdviceToMethod(
-        named("build").and(returns(implementsInterface(named("javax.ws.rs.client.Client")))),
+        named("build").and(returns(implementsInterface(named("jakarta.ws.rs.client.Client")))),
         this.getClass().getName() + "$BuildAdvice");
   }
 

@@ -10,9 +10,9 @@ import static java.util.Collections.emptyList;
 import io.opentelemetry.instrumentation.api.semconv.http.HttpClientAttributesGetter;
 
 import java.util.List;
-import javax.annotation.Nullable;
-import javax.ws.rs.client.ClientRequestContext;
-import javax.ws.rs.client.ClientResponseContext;
+import jakarta.annotation.Nullable;
+import jakarta.ws.rs.client.ClientRequestContext;
+import jakarta.ws.rs.client.ClientResponseContext;
 
 enum JaxRsClientHttpAttributesGetter
     implements HttpClientAttributesGetter<ClientRequestContext, ClientResponseContext> {
@@ -22,6 +22,7 @@ enum JaxRsClientHttpAttributesGetter
   @Nullable
   @Override
   public String getUrlFull(ClientRequestContext clientRequestContext) {
+    System.out.println("getUrlFull: " + clientRequestContext.getUri().toString());
     return clientRequestContext.getUri().toString();
   }
 

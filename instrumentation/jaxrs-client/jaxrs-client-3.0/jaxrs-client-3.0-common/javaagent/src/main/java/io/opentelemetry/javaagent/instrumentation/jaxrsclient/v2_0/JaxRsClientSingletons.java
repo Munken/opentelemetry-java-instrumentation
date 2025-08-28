@@ -7,8 +7,8 @@ package io.opentelemetry.javaagent.instrumentation.jaxrsclient.v2_0;
 
 import io.opentelemetry.instrumentation.api.instrumenter.Instrumenter;
 import io.opentelemetry.javaagent.bootstrap.internal.JavaagentHttpClientInstrumenters;
-import javax.ws.rs.client.ClientRequestContext;
-import javax.ws.rs.client.ClientResponseContext;
+import jakarta.ws.rs.client.ClientRequestContext;
+import jakarta.ws.rs.client.ClientResponseContext;
 
 public class JaxRsClientSingletons {
   private static final String INSTRUMENTATION_NAME = "io.opentelemetry.jaxrs-client-2.0";
